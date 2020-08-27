@@ -1,28 +1,24 @@
 
-volatile unsigned int ADC_Value = 0;    //ADC current value
-
-
-//*** added these lines for logging
-#include <Wire.h>
-#include "SparkFun_Qwiic_OpenLog_Arduino_Library.h"
-OpenLog myLog; //Create instance
-char filename[12] = "ECGdata.txt";
-//***
-
+#define sf 1000 //change this for wanted sampling fq
+//~ #define tc (1000/(sf))     // time constant
+#define tc 1000
+unsigned int ADC_Value = 0;    //ADC current value
+unsigned long last_time = 0;
 void setup() {
-  Wire.begin();
-  myLog.begin(); //Open connection to OpenLog (no pun intended)
-  delay(500);
-  myLog.append(filename);
-  
+  Serial.begin(500000);
 }
 
+
+// the loop routine runs over and over again forever:
 void loop() {
-        ADC_Value = analogRead(A0);
-        myLog.append(filename);
-        myLog.print(ADC_Value);  
-        myLog.print(',');        
-        myLog.print(millis());
-        myLog.println();
-        
+
+  if (micros() - last_time >= tc) {
+    last_time = micros();
+    ADC_Value = analogRead(A0);
+    
+    Serial.print(ADC_Value);
+    Serial.print(',');
+    Serial.print(millis());
+    Serial.println();
+    }
 }
