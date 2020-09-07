@@ -1,5 +1,10 @@
 
-#define sf 300 //change this for wanted sampling fq
+/*
+ * This code measures an analog signal with a given sampling frequency
+ * Created by Patrick Mayerhofer June 2020
+ */
+
+#define sf 1000 //change this for wanted sampling fq
 int tc (1000/(sf));     // time constant
 
 unsigned int ADC_Value = 0;    //ADC current value

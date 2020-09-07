@@ -1,3 +1,8 @@
+/*
+ * This code measures an analog signal with a given sampling frequency
+ * and logs it to a micro SD in the SparkFun Qwiic OpenLog
+ * Created by Patrick Mayerhofer June 2020
+ */
 
 volatile unsigned int ADC_Value = 0;    //ADC current value
 
@@ -21,7 +26,7 @@ void loop() {
         ADC_Value = analogRead(A0);
         myLog.append(filename);
         myLog.print(ADC_Value);  
-        myLog.print(',');        
+        myLog.print('\t');        
         myLog.print(millis());
         myLog.println();
         
