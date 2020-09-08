@@ -14,14 +14,6 @@ For more information:
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.signal as sps
-from scipy.stats import iqr
-import statistics as s
-import math as m
-from hrvanalysis import get_time_domain_features
-from hrvanalysis import get_frequency_domain_features
-from hrvanalysis import plot_psd
-from hrvanalysis import plot_poincare
-import scipy.signal
 
 """Step 1: This function finds the peaks of the derivative of the ECG signal
 Input: ecg signal, time
