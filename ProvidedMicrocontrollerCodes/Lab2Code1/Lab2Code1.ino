@@ -4,7 +4,7 @@
  * Created by Patrick Mayerhofer June 2020
  */
 
-#define sf 1000 //change this for wanted sampling fq
+#define sf 500 //change this for wanted sampling fq
 int tc (1000/(sf));     // time constant
 
 unsigned int ADC_Value = 0;    //ADC current value
@@ -22,7 +22,7 @@ void loop() {
     ADC_Value = analogRead(A0);
     
     Serial.print(ADC_Value);
-    Serial.print('\t');
+    Serial.print(',');
     Serial.print(millis());
     Serial.println();
     }
