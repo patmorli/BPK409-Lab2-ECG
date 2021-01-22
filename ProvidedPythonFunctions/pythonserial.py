@@ -44,10 +44,6 @@ print("Data is collecting.")
 while True:
     try: # it will try to get data from serial communication
         l.append(ser.readline().decode().strip('\r\n'))
-        
-        #t = np.append(t, time.time()-t0) # get time from python
-        #value = np.append(value, float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))) #decode value from serial communication
-        #print(decoded_bytes)
     except: # if error in before (when disconnecting the microcontroller)
         print("Data collection ended. Have a great day.")
         break
