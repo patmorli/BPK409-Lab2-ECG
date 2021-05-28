@@ -11,7 +11,7 @@ volatile unsigned int ADC_Value = 0;    //ADC current value
 #include <Wire.h>
 #include "SparkFun_Qwiic_OpenLog_Arduino_Library.h"
 OpenLog myLog; //Create instance
-char filename[12] = "ECGdata.txt";
+char filename[] = "ECGdata.txt";
 //***
 
 void setup() {
